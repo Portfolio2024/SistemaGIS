@@ -1,0 +1,24 @@
+{% extends 'body.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container-fluid">           
+  <div class="class form-group">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {{ form | crispy }}
+
+          <div class="form-group text-left">
+            <a href="{% url 'mediatension_list_DU' %}" class="btn btn-danger btnTest">
+              <i class="fas fa-times"></i> Cancelar
+            </a>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>&nbsp; Guardar Registro</button>            
+          </div>
+        </form>               
+  </div>
+</div>
+
+{% endblock %}

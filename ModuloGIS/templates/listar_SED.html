@@ -1,0 +1,85 @@
+{% extends 'list.html' %} 
+
+{% block columns %}
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">ID_SalidaAMT</th>
+      <th scope="col">Tension1</th>
+      <th scope="col">Tension2</th>
+      <th scope="col">Tension3</th>
+      <th scope="col">Maxima_Demanda</th>
+      <th scope="col">Potencia_Instalada</th>
+      <th scope="col">Subcomponente</th>
+      <th scope="col">Codigo_VNR</th>
+      <th scope="col">Propiedad</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Latitud</th>
+      <th scope="col">Longitud</th>
+      <th scope="col">ID_Nodo</th>
+      <th scope="col">Tipo_Conexion</th>
+      <th scope="col">Tipo_Subestacion</th>
+      <th scope="col">Observacion</th>
+      <th scope="col">Nombre_Propietario</th>
+      <th scope="col">Grupo_Conexión</th>
+      <th scope="col">Cantidad_Transformadores</th>
+      <th scope="col">Ubicacion</th>
+      <th scope="col">Tipo_Via</th>
+      <th scope="col">Nombre_Via</th>
+      <th scope="col">Manzana</th>
+      <th scope="col">Lote</th>
+      <th scope="col">Distrito</th>
+      <th scope="col">Provincia</th>
+      <th scope="col">Departamento</th>
+      <th scope="col">Codigo_Ubigeo</th>
+      <th scope="col">Altura</th>
+      <th scope="col">Factor_Util</th>
+      <th scope="col">Operativo</th>
+      <th scope="col">Electrificacion</th>
+      <th scope="col">Sistema_Electrico</th>
+      <th scope="col">Sector_Tipico</th>
+    </tr>
+{% endblock %}
+
+{% block rows %} 
+  {% for s in subestacion %}
+    <tr >
+      <td>{{ s.ID }}</td>
+      <td>{{ s.CODIGO }}</td>
+      <td>{{ s.ID_SALIDAMT }}</td>
+      <td>{{ s.TENSION1 }}</td>
+      <td>{{ s.TENSION2 }}</td>
+      <td>{{ s.TENSION3 }}</td>
+      <td>{{ s.MAXIMA_DEMA }}</td>
+      <td>{{ s.POTENCIA_IN }}</td>
+      <td>{{ s.SUBCOMPONEN }}</td>
+      <td>{{ s.CODIGO_VNR }}</td>
+      <td>{{ s.PROPIEDAD }}</td>
+      <td>{{ s.ESTADO }}</td>
+      <td>{{ s.LATITUD }}</td>
+      <td>{{ s.LONGITUD }}</td>
+      <td>{{ s.ID_NODO }}</td>
+      <td>{{ s.TIPO_CONEXI }}</td>
+      <td>{{ s.TIPO_SUBEST }}</td>
+      <td>{{ s.OBSERVACION }}</td>
+      <td>{{ s.NOMBRE_PROP }}</td>
+      <td>{{ s.GRUPO_CONEX }}</td>
+      <td>{{ s.CANTIDAD_TR }}</td>
+      <td>{{ s.UBICACION }}</td>
+      <td>{{ s.TIPO_VIA }}</td>
+      <td>{{ s.NOMBRE_VIA }}</td>
+      <td>{{ s.MANZANA }}</td>
+      <td>{{ s.LOTE }}</td>
+      <td>{{ s.DISTRITO }}</td>
+      <td>{{ s.PROVINCIA }}</td>
+      <td>{{ s.DEPARTAMENT }}</td>
+      <td>{{ s.CODIGO_UBIG }}</td>
+      <td>{{ s.ALTURA }}</td>
+      <td>{{ s.FACTOR_UTIL }}</td>
+      <td>{{ s.OPERATIVO }}</td>
+      <td>{{ s.ELECTRIFICA }}</td>
+      <td>{{ s.SISTEMA_ELE }}</td>
+      <td>{{ s.SECTOR_TIPI }}</td>
+    </tr>
+{% endfor %} 
+{% endblock %}

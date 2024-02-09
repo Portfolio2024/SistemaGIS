@@ -1,0 +1,35 @@
+{% extends 'list.html' %}
+
+{% block columns %}
+    <tr>
+      <th scope="col">Titulo</th>
+      <th scope="col">Creador</th>
+      <th scope="col">Download</th>
+      {% if request.user.is_staff %}
+      <th scope="col">Opciones</th>
+      {% endif %}
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for m in mediaTension2 %}
+    <tr>
+          <td>{{ m.titulo }}</td>
+          <td>{{ m.creador }}</td>
+          <td>
+          <a href="{{ m.files.url }}" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-download"></i>&nbsp;Download</a>
+          </td>
+          {% if request.user.is_staff %}
+          <td><a href="metrado/edit/{{ m.id }}" class="btn btn-warning btn-sm"><i class="fas fa-edit">&nbsp;Editar</i></a>
+          <a href="delete/Metrado/{{ m.id }}" class="btn btn-danger btn-sm btnEliminacion"><i class="fas fa-trash-alt">&nbsp;Eliminar</i></a></td>
+          {% endif %}
+    </tr>
+    {% endfor %}
+{% endblock %}
+{% block crear %}
+    {% if request.user.is_staff %}
+        <a href="{% url 'crear_metrados' %}" class="btn btn-primary btnTest">
+          <i class="fas fa-plus"></i> Nuevo registro
+        </a>
+    {% endif %}
+{% endblock %}

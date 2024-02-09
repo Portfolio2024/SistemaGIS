@@ -1,0 +1,25 @@
+{% extends 'body.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <!--Card Datos de Perfil-->
+        <div class="card-body">
+          <img class="img-thumbnail rounded-circle mb-3" src="{{ user.profile.imagen.url }}" alt="{{ user.username }}" style="width: 100px;">
+          <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+          <h4>Grupo al que pertenece</h4>
+          <p><strong>usuario: </strong>{{ user.username }}</p>
+          <p><strong>Nombres: </strong>{{ user.first_name }}</p>
+          <p><strong>Apellidos: </strong>{{ user.last_name }}</p>
+          <p><strong>Teléfono: </strong>{{ user.profile.telephone }}</p>
+          <hr>
+          <a href="{% url 'update_perfil' %}" class="btn btn-outline-secondary">Editar Perfil</a>
+          <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

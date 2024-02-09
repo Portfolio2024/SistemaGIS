@@ -1,0 +1,73 @@
+{% extends 'list.html' %}
+
+{% block columns %}
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">amt</th>
+      <th scope="col">Id_Vano_Mt</th>
+      <th scope="col">Id_Subestacion</th>
+      <th scope="col">Tension_Nominal</th>
+      <th scope="col">Codigo_Vnr</th>
+      <th scope="col">Tipo_Instalacion</th>
+      <th scope="col">Propiedad</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Latitud</th>
+      <th scope="col">Longitud</th>
+      <th scope="col">Funcion</th>
+      <th scope="col">Abierto</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Operativo</th>
+      <th scope="col">Corriente_Nominal</th>
+      <th scope="col">Nombre_Propietario</th>
+      <th scope="col">Observacion</th>
+      <th scope="col">Altura</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Serie</th>
+      <th scope="col">Norma</th>
+      <th scope="col">Icc</th>
+      <th scope="col">Bill</th>
+      <th scope="col">Corriente</th>
+      <th scope="col">Aislante</th>
+      <th scope="col">Maniobra</th>
+      <th scope="col">Id_Nodo</th>    
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for secc in seccionador %}
+    <tr>
+      <td>{{secc.id}}</td>
+      <td>{{secc.codigo}}</td>
+      <td>{{secc.amt}}</td>
+      <td>{{secc.id_vano_mt}}</td>
+      <td>{{secc.id_subestacion}}</td>
+      <td>{{secc.tension_nominal}}</td>
+      <td>{{secc.codigo_vnr}}</td>
+      <td>{{secc.tipo_instalacion}}</td>
+      <td>{{secc.propiedad}}</td>
+      <td>{{secc.estado}}</td>
+      <td>{{secc.latitud}}</td>
+      <td>{{secc.longitud}}</td>
+      <td>{{secc.funcion}}</td>
+      <td>{{secc.abierto}}</td>
+      <td>{{secc.tipo}}</td>
+      <td>{{secc.cantidad}}</td>
+      <td>{{secc.operativo}}</td>
+      <td>{{secc.corriente_nominal}}</td>
+      <td>{{secc.nombre_propietario}}</td>
+      <td>{{secc.observacion}}</td>
+      <td>{{secc.altura}}</td>
+      <td>{{secc.marca}}</td>
+      <td>{{secc.serie}}</td>
+      <td>{{secc.norma}}</td>
+      <td>{{secc.icc}}</td>
+      <td>{{secc.bill}}</td>
+      <td>{{secc.corriente}}</td>
+      <td>{{secc.aislante}}</td>
+      <td>{{secc.maniobra}}</td>
+      <td>{{secc.id_nodo}}</td>                 
+    </tr>
+    {% endfor %}
+{% endblock %}

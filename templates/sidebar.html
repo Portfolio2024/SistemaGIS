@@ -1,0 +1,937 @@
+{% load static %}
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+        <img src="{% static 'img/logo1.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8" />
+        <span class="brand-text font-weight-light">GIS - Chavimochic</span>
+    </a>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">            
+            <img src="{{ user.profile.imagen.url }}" class="img-circle elevation-2" alt="User Image" />
+        </div>
+    <div class="info">
+        <a href="#" class="d-block">{{ user.username }} </a>
+        </div>
+    </div>
+    
+    <!-- SidebarSearch Form -->
+    <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+            <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+            </button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+            <li class="nav-item">
+            <a href="{% url 'dashboard' %}" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+                Dashboard
+            </p>
+            </a>
+            </li>
+            {% comment %} {% if user.is_authenticated %} {% endcomment %}
+            <li class="nav-item">
+            <a href="{% url 'infraestructura' %}" class="nav-link">
+                <i class="nav-icon fas fa-map"></i>
+                <p>
+                Infraestructura
+                </p>
+            </a>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-broadcast-tower"></i>
+                <p>
+                Transmisión
+                <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                <a href="{% url 'lista_transmisiones' %}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Diagramas Unifilares</p>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a href="{% url 'lista_varios' %}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Varios</p>
+                </a>
+                </li>             
+            </ul>
+            </li>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-bolt"></i>
+            <p>
+                Media Tensión
+                <i class="right fas fa-angle-left"></i>
+            </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{% url 'mediatension_list_DU' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Diagramas Unifilares</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'mediatension_list_Fotos' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Fotos</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'mediatension_list_Metrados' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Metrado XLS</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'mediatension_list_Planos' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Planos</p>
+                </a>
+            </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-industry"></i>
+                <p>Baja Tensión<i class="right fas fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                        AL-1
+                        <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH001' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH001</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH002' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH002</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH003' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH003</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH004' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH004</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH005' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH005</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH006' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH006</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH007' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH007</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH008' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH008</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH009' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH009</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH010' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH010</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH062' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH062</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH064' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH064</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH065' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH065</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH066' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH066</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH067' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH067</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH068' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH068</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH069' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH069</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#{% url 'bajatension_PCH070' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH070</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH071' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH071</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH072' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH072</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH073' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH073</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH120' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH120</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH121' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH121</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH122' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH122</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH127' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH127</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH128' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH128</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH129' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH129</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH142' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH142</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH158' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH158</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH159' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH159</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            </ul>
+            <ul class="nav nav-treeview" style="display: none;">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                        AL-2
+                        <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH011' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH011</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH012' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH012</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH013' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH013</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH014' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH014</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH015' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH015</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH016' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH016</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH017' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH017</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH018' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH018</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH019' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH019</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH020' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH020</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH021' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH021</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH022' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH022</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH023' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH023</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH024' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH024</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH025' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH025</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH026' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH026</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH027' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH027</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH028' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH028</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH030' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH030</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH031' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH031</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH032' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH032</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH033' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH033</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH034' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH034</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH074' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH074</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH075' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH075</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH076' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH076</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH077' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH077</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH078' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH078</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH079' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH079</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH080' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH080</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH081' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH081</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH086' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH086</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH090' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH090</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH091' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH091</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH092' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH092</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH093' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH093</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH094' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH094</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH095' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH095</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH106' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH106</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH107' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH107</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH109' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH109</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH110' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH110</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH111' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH111</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH112' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH112</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH113' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH113</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH114' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH114</p>
+                        </a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH125' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH125</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH126' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH126</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH130' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH130</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH131' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH131</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            </ul>
+            <ul class="nav nav-treeview" style="display: none;">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                        SSJ001
+                        <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH036' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH036</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH037' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH037</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH038' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH038</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH039' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH039</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH040' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH040</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH063' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH063</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            </ul>
+            <ul class="nav nav-treeview" style="display: none;">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>
+                        SPP001
+                        <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH041' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH041</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH042' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH042</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH043' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH043</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH046' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH046</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH047' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH047</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH048' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH048</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH050' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH050</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH051' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH051</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH052' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH052</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH053' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH053</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH054' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH054</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH055' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH055</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH056' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH056</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH057' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH057</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH058' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH058</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH059' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH059</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH060' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH060</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH061' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH061</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH089' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH089</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH096' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH096</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH097' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH097</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH098' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH098</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH099' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH099</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH100' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH100</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH101' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH101</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH102' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH102</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH153' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH153</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'bajatension_PCH157' %}" class="nav-link">
+                            <i class="far fa-dot-circle nav-icon"></i>
+                            <p>PCH157</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'catastro_list' %}" class="nav-link">
+                <i class="nav-icon fas fa-layer-group"></i>
+                <p>
+                Catastro
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'lista_aislado' %}" class="nav-link">
+                <i class="nav-icon fas fa-route"></i>
+                <p>
+                Sistema Aislado
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'registrar_usuario' %}" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                Registro
+                </p>
+            </a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}" style="color:white"><i class="nav-icon fas fa-power-off"></i><p>&nbsp; Salir</p></a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}" style="color:white"><i class="nav-icon fas fa-user-friends"></i><p>&nbsp; Login</p></a>
+        </li>    
+        {% endif %}
+        {% if user.is_superuser %}
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-bolt"></i>
+                <p>
+                    Sistema GIS
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+                <ul class="nav nav-treeview">                    
+                    <li class="nav-item">
+                        <a href="{% url 'listar_estructuras' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Estructuras</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'listar_vanos' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Vanos</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'listar_SED' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Subestaciones</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'listar_seccionadores' %}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Seccionadores</p>
+                        </a>
+                    </li>               
+                </ul>
+            </li>
+        {% else %} 
+            <li class="nav-item">
+                <a href="{% url 'login' %}" class="nav-link">
+                <i class="nav-icon fas fa-info"></i>
+                <p>Area restringida</p>
+                </a>
+            </li>
+        {% endif %}
+        </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

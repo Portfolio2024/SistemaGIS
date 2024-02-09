@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cargar y mostrar archivo KML</title>
+</head>
+<body>
+    <h1>Cargar y mostrar archivo KML</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Cargar KML</button>
+    </form>
+    
+    <h2>Archivos KML cargados:</h2>
+    
+    <div id="google-map" style="width: 100%; height: 400px;">
+      <iframe src="https://www.google.com/maps/d/embed?mid=1mOSzLhSrUDAVZyNYMz8zMHI7kYWSUQA&ehbc=2E312F" width="640" height="480"></iframe>
+    </div>
+
+      
+</body>
+</html>

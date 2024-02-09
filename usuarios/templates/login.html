@@ -1,0 +1,70 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<center>
+<div class="login-box">
+    <div class="card">
+        <div class="card-body login-card-body">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ message }}
+                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        <a href="{% url 'login' %}">
+            <img
+            class="img-fluid"
+            src="{% static 'img/login.png' %}"
+            alt="AdminLTE Logo"
+            class="brand-image"
+            />
+        <br /><br />
+        <h5><b>GIS - Proyecto Especial Chavimochic</b></h5>
+        </a>
+        <!-- Contenido adicional para usuarios autenticados -->
+        {% if user.is_authenticated %}
+        <p class="login-box-msg"><b>Bienvenido, {{ user.username }}</b></p>
+        {% else %}
+        <p class="login-box-msg">
+            <b> Por favor, ingrese sus credenciales para acceder.</b>
+        </p>
+        <!-- Formulario de inicio de sesión u otros elementos para usuarios no autenticados -->
+        {% endif %}
+            <form action="#" method="post" autocomplete='off'>
+                <input type="hidden" name="next" value="{{ next }}">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-center mt-2" style="font-size: 13px;">
+                        Si no recuerdas tu contraseña comunicate con el administrador
+                    </p>
+            </form>
+        </div>
+    </div>
+</div>
+</center>
+{% endblock %}

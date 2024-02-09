@@ -1,0 +1,78 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block body %}
+    <body class="hold-transition layout-fixed">
+    <div class="wrapper">
+        <!-- Header -->
+        {% include 'header.html' %}
+        {% include 'sidebar.html' %}
+        <div class="content-wrapper">
+            <br />
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                    <!-- Default box -->
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    {% if user.is_authenticated %}
+                                    <h3 class="card-title"><i class="fas fa-search"></i> <b>&nbsp;{{ title }}</b></h3>
+                                    {% else %}
+                                    <h3 class="card-title"><i class="fas fa-search"></i> </h3>
+                                    {% endif %}
+                                        <div class="card-tools">
+                                            {% if user.is_authenticated %}
+                                                <small>Su último acceso al sistema fue el {{ request.user.last_login }}</small>
+                                            {% else %}
+                                                <small>&nbsp</small>
+                                            {% endif %}
+                                        </div>
+                                </div>
+                                <div class="card-body">
+                                    {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        {{ message }}
+                                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="close"></button>
+                                        </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                {% block content %}                                  
+                                
+                                {% endblock %}
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Footer -->
+        {% include 'footer.html' %}
+    </div>
+    
+    <script language="JavaScript">
+        /*** add active class and stay opened when selected ***/
+        var url = window.location;
+
+        // for sidebar menu entirely but not cover treeview
+        $('ul.nav-sidebar a').filter(function() {
+            if (this.href) {
+                return this.href == url || url.href.indexOf(this.href) == 0;
+            }
+        }).addClass('active');
+
+        // for the treeview
+        $('ul.nav-treeview a').filter(function() {
+            if (this.href) {
+                return this.href == url || url.href.indexOf(this.href) == 0;
+            }
+        }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
+    </script>
+    {% block javascript %}
+    
+    {% endblock %}
+    </body>
+{% endblock %}

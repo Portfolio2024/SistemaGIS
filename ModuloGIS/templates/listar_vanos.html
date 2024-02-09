@@ -1,0 +1,45 @@
+{% extends 'list.html' %} 
+
+{% block columns %}
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">AMT</th>
+      <th scope="col">Id_Salida_M</th>
+      <th scope="col">Tensión_NOM</th>
+      <th scope="col">Id_Configuración</th>
+      <th scope="col">Propiedad</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Longitud</th>
+      <th scope="col">Latitud1</th>
+      <th scope="col">Longitud1</th>
+      <th scope="col">Latitud2</th>
+      <th scope="col">Longitud2</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Observación</th>
+      <th scope="col">Nombre_Propietario</th>
+      <th scope="col">Tipo_Circuito</th>
+    </tr>
+{% endblock %}
+
+{% block rows %} 
+  {% for t in tramo %}
+    <tr>
+      <td>{{ t.ID }}</td>
+      <td>{{ t.AMT }}</td>
+      <td>{{ t.ID_SALIDA_M }}</td>
+      <td>{{ t.TENSION_NOM }}</td>
+      <td>{{ t.ID_CONFIGUR }}</td>
+      <td>{{ t.PROPIEDAD }}</td>
+      <td>{{ t.ESTADO }}</td>
+      <td>{{ t.LONGITUD }}</td>
+      <td>{{ t.LATITUD1 }}</td>
+      <td>{{ t.LONGITUD1 }}</td>
+      <td>{{ t.LATITUD2 }}</td>
+      <td>{{ t.LONGITUD2 }}</td>
+      <td>{{ t.DESCRIPCION }}</td>
+      <td>{{ t.OBSERVACION }}</td>
+      <td>{{ t.NOMBRE_PROP }}</td>
+      <td>{{ t.TIPO_CIRCUI }}</td>
+    </tr>
+{% endfor %} 
+{% endblock %}

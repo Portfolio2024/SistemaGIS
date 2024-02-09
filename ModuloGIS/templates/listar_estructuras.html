@@ -1,0 +1,59 @@
+{% extends 'list.html' %}
+
+{% block columns %}
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Etiqueta</th>  
+      <th scope="col">AMT</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Codigo_VNR</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Propiedad</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Latitud</th>
+      <th scope="col">Longitud</th>
+      <th scope="col">Clasificación</th>
+      <th scope="col">Altura</th>
+      <th scope="col">Operativo</th>
+      <th scope="col">Tipo_Armado</th>
+      <th scope="col">Propietario</th>
+      <th scope="col">Angulo</th>
+      <th scope="col">Observación</th>
+      <th scope="col">Comparte</th>
+      <th scope="col">Codigo_Armado</th>
+      <th scope="col">Ternas</th>
+      <th scope="col">Disposición</th>
+      <th scope="col">Función_Armado</th>
+      <th scope="col">Esfuerzo</th>    
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for e in estructuras %}
+    <tr>
+      <td>{{e.ID}}</td>      
+      <td>{{e.ETIQUETA}}</td> 
+      <td>{{e.AMT}}</td>
+      <td>{{e.CODIGO}}</td>
+      <td>{{e.CODIGO_VNR}}</td>
+      <td>{{e.TIPO}}</td>
+      <td>{{e.PROPIEDAD}}</td>
+      <td>{{e.ESTADO}}</td>
+      <td>{{e.LATITUD}}</td>
+      <td>{{e.LONGITUD}}</td>
+      <td>{{e.CLASIFICACI}}</td>
+      <td>{{e.ALTURA}}</td>
+      <td>{{e.OPERATIVO}}</td>
+      <td>{{e.TIPO_ARMADO}}</td>
+      <td>{{e.PROPIETARIO}}</td>
+      <td>{{e.ANGULO}}</td>
+      <td>{{e.OBSERVACION}}</td>
+      <td>{{e.COMPARTE}}</td>
+      <td>{{e.CODIGO_ARMA}}</td>
+      <td>{{e.TERNAS}}</td>
+      <td>{{e.DISPOSICION}}</td>
+      <td>{{e.FUNCION_ARM}}</td>
+      <td>{{e.ESFUERZO}}</td>                 
+    </tr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'body.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+  <div class="container">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <img class="img-thumbnail rounded-circle mb-3" src="{{ user.profile.imagen.url }}" alt="{{ user.username }}" style="width: 100px;">
+      {{ form | crispy  }} 
+      <button type="submit" class="btn btn-success">Actualizar</button>
+    </form>
+  </div>
+{% endblock %}
